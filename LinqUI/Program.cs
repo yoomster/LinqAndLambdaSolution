@@ -38,7 +38,14 @@ namespace LinqUI
             //    Console.WriteLine($"{person.FirstName} {person.LastName}");
             //}
 
-            var results = data.Skip(2).Take(1);
+            //var results = data.Skip(2).Take(1);
+
+            //foreach (var person in results)
+            //{
+            //    Console.WriteLine($"{person.FirstName} {person.LastName}");
+            //}
+
+            var results = data.OrderBy(x => x.LastName);
 
             foreach (var person in results)
             {
