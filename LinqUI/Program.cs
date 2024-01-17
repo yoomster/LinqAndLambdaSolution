@@ -16,12 +16,21 @@ namespace LinqUI
         {
             var data = SampleData.GetContactData();
 
-            var results = data.Where(x => x.Addresses.Count > 1);
+            //var results = data.Where(x => x.Addresses.Count > 1);
 
-            foreach (var person in results)
+            //foreach (var person in results)
+            //{
+            //    Console.WriteLine($"{person.FirstName} {person.LastName}");
+            //}
+
+
+            var results = data.Select(x => x.FirstName);
+
+            foreach (var result in results)
             {
-                Console.WriteLine($"{person.FirstName} {person.LastName}");
+                Console.WriteLine(result);
             }
+
         }
     }
 }
