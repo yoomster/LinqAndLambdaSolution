@@ -24,11 +24,18 @@ namespace LinqUI
             //}
 
 
-            var results = data.Select(x => x.FirstName);
+            //var results = data.Select(x => x.FirstName);
 
-            foreach (var result in results)
+            //foreach (var result in results)
+            //{
+            //    Console.WriteLine(result);
+            //}
+
+            var results = data.Take(2);
+
+            foreach (var person in results)
             {
-                Console.WriteLine(result);
+                Console.WriteLine($"{person.FirstName} {person.LastName}");
             }
 
         }
