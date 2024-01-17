@@ -31,13 +31,19 @@ namespace LinqUI
             //    Console.WriteLine(result);
             //}
 
-            var results = data.Take(2);
+            //var results = data.Take(2);
+
+            //foreach (var person in results)
+            //{
+            //    Console.WriteLine($"{person.FirstName} {person.LastName}");
+            //}
+
+            var results = data.Skip(2).Take(1);
 
             foreach (var person in results)
             {
                 Console.WriteLine($"{person.FirstName} {person.LastName}");
             }
-
         }
     }
 }
