@@ -16,8 +16,8 @@ namespace LinqUI
                 new ContactModel { Id = 1, FirstName = "Naomi", LastName = "Perenboom", Addresses = new List<int> { 1, 2, 3 }},
                 new ContactModel { Id = 2, FirstName = "Adam", LastName = "Akil", Addresses = new List<int> { 1 }},
                 new ContactModel { Id = 3, FirstName = "Teddy", LastName = "Saurus", Addresses = new List<int> { 1, 2 }},
-                new ContactModel { Id = 3, FirstName = "Snuggles", LastName = "Pants", Addresses = new List<int> { 1,2,3,4 }},
-                new ContactModel { Id = 3, FirstName = "Balou", LastName = "Perenboom", Addresses = new List<int> { 1, 2,3 }}
+                new ContactModel { Id = 3, FirstName = "Snuggles", LastName = "Pants", Addresses = new List<int> { 1 }},
+                new ContactModel { Id = 3, FirstName = "Balou", LastName = "Perenboom", Addresses = new List<int> { 1 }}
 
             };
             return output;
@@ -27,7 +27,9 @@ namespace LinqUI
         {
             List<AddressModel> output = new List<AddressModel>
             {
-                new AddressModel{Id= 1, Address ="Frits", HouseNr = 123, City = "Ehv", },
+                new AddressModel{Id= 1, Address ="Frits", HouseNr = 104, City = "Ehv", },
+                new AddressModel{Id= 2, Address ="Frederik", HouseNr = 189, City = "Ehv", },
+                new AddressModel{Id= 3, Address ="Hoppie", HouseNr = 3, City = "Hm", }
             };
             return output;
         }
