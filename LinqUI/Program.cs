@@ -7,10 +7,28 @@ namespace LinqUI
     {
         static void Main(string[] arg)
         {
-            LambdaTests();
+            LinqTests();
+
+            //LambdaTests();
 
             Console.WriteLine("Done processing");
             Console.ReadLine();
+        }
+
+        private static void LinqTests()
+        {
+            var contacts = SampleData.GetContactData();
+            var addresses = SampleData.GetAddressData();
+
+            var results = (from c in contacts
+                           join a in addresses
+                           on c.Id equals a.ContactId
+                           select new { c.FirstName, c.LastName, a.Address, a.HouseNr, a.City });
+
+            foreach (var item in results)
+            {
+                Console.WriteLine($"{item.FirstName} {item.LastName} from {item.City} ");
+            }
         }
         private static void LambdaTests()
         {
