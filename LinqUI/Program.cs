@@ -20,14 +20,32 @@ namespace LinqUI
             var contacts = SampleData.GetContactData();
             var addresses = SampleData.GetAddressData();
 
+            //var results = (from c in contacts
+            //               join a in addresses
+            //               on c.Id equals a.ContactId
+            //               select new { c.FirstName, c.LastName, a.Address, a.HouseNr, a.City });
+
+            //foreach (var item in results)
+            //{
+            //    Console.WriteLine($"{item.FirstName} {item.LastName} from {item.City} ");
+            //}
+
+            //one to many relation
+            //var results = (from c in contacts
+            //               select new { c.FirstName, c.LastName, Addresses = addresses.Where(x => x.ContactId == c.Id) });
+
+            //foreach (var item in results)
+            //{
+            //    Console.WriteLine($"{item.FirstName} {item.LastName} - {item.Addresses.Count()} addresses ");
+            //}
+
+            //many to many relation
             var results = (from c in contacts
-                           join a in addresses
-                           on c.Id equals a.ContactId
-                           select new { c.FirstName, c.LastName, a.Address, a.HouseNr, a.City });
+                           select new { c.FirstName, c.LastName, Addresses = addresses.Where(a => c.Addresses.Contains(a.Id)) });
 
             foreach (var item in results)
             {
-                Console.WriteLine($"{item.FirstName} {item.LastName} from {item.City} ");
+                Console.WriteLine($"{item.FirstName} {item.LastName} - {item.Addresses.Count()} addresses ");
             }
         }
         private static void LambdaTests()
@@ -72,3 +90,4 @@ namespace LinqUI
         }
     }
 }
+  
