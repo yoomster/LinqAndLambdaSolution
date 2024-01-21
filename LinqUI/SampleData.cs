@@ -37,5 +37,17 @@ namespace LinqUI
             };
             return output;
         }
+
+        public static List<PersonModel> GetPersonData()
+        {
+            List<PersonModel> output = new List<PersonModel>
+            {
+                new PersonModel { Id= 1, FirstName = "Naomi", LastName = "Perenboom"},
+                new PersonModel { Id= 2, FirstName = "Adam", LastName = "Akil"},
+                new PersonModel { Id= 3, FirstName = "Teddy",  LastName = "Saurus"},
+                new PersonModel { Id= 4, FirstName = "Snug", LastName="Pans" }
+            };
+            return output;
+        }
     }
 }
