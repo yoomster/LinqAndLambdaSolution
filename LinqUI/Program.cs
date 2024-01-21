@@ -19,6 +19,8 @@ namespace LinqUI
         {
             var contacts = SampleData.GetContactData();
             var addresses = SampleData.GetAddressData();
+            var people = SampleData.GetPersonData();
+
 
             //var results = (from c in contacts
             //               join a in addresses
@@ -40,14 +42,22 @@ namespace LinqUI
             //}
 
             //many to many relation
-            var results = (from c in contacts
-                           select new { c.FirstName, c.LastName, Addresses = addresses.Where(a => c.Addresses.Contains(a.Id)) });
+            //var results = (from c in contacts
+            //               select new { c.FirstName, c.LastName, Addresses = addresses.Where(a => c.Addresses.Contains(a.Id)) });
 
+            //foreach (var item in results)
+            //{
+            //    Console.WriteLine($"{item.FirstName} {item.LastName} - {item.Addresses.Count()} addresses ");
+            //}
+
+            var results = (from p in people
+                           select new {p.FirstName, p.LastName});
             foreach (var item in results)
             {
-                Console.WriteLine($"{item.FirstName} {item.LastName} - {item.Addresses.Count()} addresses ");
+                Console.WriteLine($"{item.FirstName}, {item.LastName}");
             }
         }
+
         private static void LambdaTests()
         {
             var data = SampleData.GetContactData();
