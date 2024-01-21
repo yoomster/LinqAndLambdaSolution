@@ -7,9 +7,9 @@ namespace LinqUI
     {
         static void Main(string[] arg)
         {
-            LinqTests();
+            //LinqTests();
 
-            //LambdaTests();
+            LambdaTests();
 
             Console.WriteLine("Done processing");
             Console.ReadLine();
@@ -61,6 +61,8 @@ namespace LinqUI
         private static void LambdaTests()
         {
             var data = SampleData.GetContactData();
+            var people = SampleData.GetPersonData();
+
 
             //var results = data.Where(x => x.Addresses.Count > 1);
 
@@ -91,11 +93,18 @@ namespace LinqUI
             //    Console.WriteLine($"{person.FirstName} {person.LastName}");
             //}
 
-            var results = data.OrderBy(x => x.LastName);
+            //var results = data.OrderBy(x => x.LastName);
 
-            foreach (var person in results)
+            //foreach (var person in results)
+            //{
+            //    Console.WriteLine($"{person.FirstName} {person.LastName}");
+            //}
+
+            var results = people.Skip(1);
+
+            foreach (var item in results)
             {
-                Console.WriteLine($"{person.FirstName} {person.LastName}");
+                Console.WriteLine($"{item.FirstName} {item.LastName}");
             }
         }
     }
